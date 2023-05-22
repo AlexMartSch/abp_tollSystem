@@ -91,7 +91,7 @@ local function isOutToll(vehicle, tollData)
                 ShowAdvancedNotification(locale("TOLL"), locale("PAYMENT_FAULT"), locale("PAYMENT_COMPLETED_ADVANCED"), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
             end
 
-            TriggerServerEvent('abp_TollSystem::PaymentFault', tollData.tollData.tollId)
+            TriggerServerEvent('abp_TollSystem::PaymentFault', tollData.tollId)
         end
     else
         if Config.UseCustomAdvancedNotifications then
