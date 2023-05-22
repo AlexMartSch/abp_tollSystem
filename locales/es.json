@@ -1,0 +1,12 @@
+
+{
+    "TOLL": "PEAJE",
+    
+    "PLEASE_STOP": "Por favor, detén el vehículo para realizar el pago.",
+    "READY_IN": "Estará listo en %s segundos.",
+
+    "PAYMENT_COMPLETED": "Pago realizado, puedes salir del peaje.",
+    "PAYMENT_FAULT": "Pago penalizado",
+    "PAYMENT_COMPLETED_ADVANCED": "Se ha cargado a tu cuenta bancaria $%s",
+    "PAYMENT_FOR_EMERGENCY": "Los vehículos estatales no pagan mientras están en una emergencia."
+}

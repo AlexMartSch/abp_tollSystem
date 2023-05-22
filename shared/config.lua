@@ -1,4 +1,5 @@
 Config = {}
+lib.locale()
 
 --[[
 
@@ -49,5 +50,13 @@ Config.Tolls = {
         },
         price = 100,
         fine = 150
+    },
+    {
+        name = "Test Toll 2",
+        stations = {
+            vector3(2577.9279, -285.7144, 92.992507)
+        },
+        price = 150,
+        fine = 13
     }
 }

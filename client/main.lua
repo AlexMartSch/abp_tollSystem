@@ -11,15 +11,15 @@ local function isInToll(vehicle, tollData)
     
             if speed > 0 then
                 if Config.UseCustomNotifications then
-                    Notify(Translate("PLEASE_STOP"))
+                    Notify(locale("PLEASE_STOP"))
                 else
                     if Config.UseLibNotifications then
                         lib.notify({
-                            description = Translate("PLEASE_STOP"),
+                            description = locale("PLEASE_STOP"),
                             type = "warning"
                         })
                     else
-                        BottomNotification(Translate("PLEASE_STOP"), 1000)
+                        BottomNotification(locale("PLEASE_STOP"), 1000)
                     end
                 end
                 timeToGo = Config.TimeToGo
@@ -27,22 +27,22 @@ local function isInToll(vehicle, tollData)
                 if timeToGo <= 0 then
     
                     if Config.UseCustomNotifications then
-                        Notify(Translate("PAYMENT_COMPLETED"))
+                        Notify(locale("PAYMENT_COMPLETED"))
                     else
                         if Config.UseLibNotifications then
                             lib.notify({
-                                description = Translate("PAYMENT_COMPLETED"),
+                                description = locale("PAYMENT_COMPLETED"),
                                 type = "success"
                             })
                         else
-                            BottomNotification(Translate("PAYMENT_COMPLETED"), 1000)
+                            BottomNotification(locale("PAYMENT_COMPLETED"), 1000)
                         end
                     end
     
                     if Config.UseCustomAdvancedNotifications then
-                        AdvancedNotify(Translate("PAYMENT_COMPLETED_ADVANCED", tollData.price))
+                        AdvancedNotify(locale("PAYMENT_COMPLETED_ADVANCED", tollData.price))
                     else
-                        ShowAdvancedNotification(Translate("TOLL"), '', Translate("PAYMENT_COMPLETED_ADVANCED", tollData.price), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
+                        ShowAdvancedNotification(locale("TOLL"), '', locale("PAYMENT_COMPLETED_ADVANCED", tollData.price), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
                     end
 
                     TriggerServerEvent('abp_TollSystem::Payment', tollData.tollId)
@@ -52,15 +52,15 @@ local function isInToll(vehicle, tollData)
                 else
     
                     if Config.UseCustomNotifications then
-                        Notify(Translate("READY_IN", timeToGo))
+                        Notify(locale("READY_IN", timeToGo))
                     else
                         if Config.UseLibNotifications then
                             lib.notify({
-                                description = Translate("READY_IN", timeToGo),
+                                description = locale("READY_IN", timeToGo),
                                 type = "warning"
                             })
                         else
-                            BottomNotification(Translate("READY_IN", timeToGo), 1000)
+                            BottomNotification(locale("READY_IN", timeToGo), 1000)
                         end
                     end
     
@@ -86,18 +86,18 @@ local function isOutToll(vehicle, tollData)
     if mustPay then
         if Config.FineWhenEscaping then
             if Config.UseCustomAdvancedNotifications then
-                AdvancedNotify(Translate("PAYMENT_COMPLETED_ADVANCED"))
+                AdvancedNotify(locale("PAYMENT_COMPLETED_ADVANCED"))
             else
-                ShowAdvancedNotification(Translate("TOLL"), Translate("PAYMENT_FAULT"), Translate("PAYMENT_COMPLETED_ADVANCED"), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
+                ShowAdvancedNotification(locale("TOLL"), locale("PAYMENT_FAULT"), locale("PAYMENT_COMPLETED_ADVANCED"), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
             end
 
             TriggerServerEvent('abp_TollSystem::PaymentFault', tollData.tollData.tollId)
         end
     else
         if Config.UseCustomAdvancedNotifications then
-            AdvancedNotify(Translate("PAYMENT_FOR_EMERGENCY"))
+            AdvancedNotify(locale("PAYMENT_FOR_EMERGENCY"))
         else
-            ShowAdvancedNotification(Translate("TOLL"), '', Translate("PAYMENT_FOR_EMERGENCY"), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
+            ShowAdvancedNotification(locale("TOLL"), '', locale("PAYMENT_FOR_EMERGENCY"), "CHAR_LS_TOURIST_BOARD", 1, true, false, 70)
         end
     end
 
